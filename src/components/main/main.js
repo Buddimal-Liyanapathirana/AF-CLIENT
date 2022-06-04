@@ -51,9 +51,15 @@ export default function CreateMarking() {
   async function uploadSchemeData(newMarking) {
     console.log(newMarking);
     await axios
-      .post("http://localhost:5000/api/files/uploadFile", newMarking)
-      .then((willcreate) => {
-        console.log(willcreate);
+      .post("http://localhost:5000/api/marking", newMarking)
+      .then((res) => {
+        console.log(res);
+
+        if (res.status == 201) {
+          window.location.reload(false);
+        } else {
+          //error
+        }
         // if (willcreate) {
         //   swal({
         //     title: "Success",

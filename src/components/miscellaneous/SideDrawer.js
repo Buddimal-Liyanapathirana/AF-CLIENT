@@ -169,6 +169,11 @@ function SideDrawer() {
               <Button border="1px">Manage Users</Button>
             </Link>
           )}
+          {role === "ADMIN" && (
+            <Link to="/body/allUsers">
+              <Button border="1px">Create Submission types</Button>
+            </Link>
+          )}
           {role !== "ADMIN" && (
             <Link to="/body/chats">
               <Button border="1px">Chat</Button>
