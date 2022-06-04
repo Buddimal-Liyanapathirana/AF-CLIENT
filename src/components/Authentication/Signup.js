@@ -53,7 +53,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "/api/user",
+        "https://project-fix-sliit.herokuapp.com/api/user",
         {
           name,
           email,
