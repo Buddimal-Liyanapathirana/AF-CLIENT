@@ -157,7 +157,7 @@ function SideDrawer() {
             fontFamily="Work sans"
             style={{ marginTop: "4px" }}
           >
-            ProjectFix
+            Research Management System
           </Text>
         </div>
         <div className="links">
@@ -167,6 +167,16 @@ function SideDrawer() {
           {role === "ADMIN" && (
             <Link to="/body/allUsers">
               <Button border="1px">Manage Users</Button>
+            </Link>
+          )}
+          {role === "ADMIN" && (
+            <Link to="/body/allUsers">
+              <Button border="1px">Create Submission types</Button>
+            </Link>
+          )}
+          {role === "ADMIN" && (
+            <Link to="/body/allUsers">
+              <Button border="1px">Allocate Panel Members</Button>
             </Link>
           )}
           {role !== "ADMIN" && (
