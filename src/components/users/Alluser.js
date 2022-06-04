@@ -9,6 +9,7 @@ import {
   Tr,
   Th,
   Td,
+  Button,
   TableCaption,
   TableContainer,
   Box,
@@ -26,7 +27,7 @@ export default function Alluser() {
   useEffect(() => {
     function getOrder() {
       axios
-        .get("http://localhost:5000/api/user/all")
+        .get("https://project-fix-sliit.herokuapp.com/api/user/all")
         .then((res) => {
           setusers(res.data);
         })
@@ -51,7 +52,7 @@ export default function Alluser() {
     // executes when the value in sort serch is input
     const searchKey = e.currentTarget.value;
     axios
-      .get("http://localhost:5000/api/user/all")
+      .get("https://project-fix-sliit.herokuapp.com/api/user/all")
       .then((res) => {
         filterSearch(res.data, searchKey);
       })
@@ -70,7 +71,7 @@ export default function Alluser() {
     // executes when the value in sort field is clicked
     const searchKey = e.currentTarget.value;
     axios
-      .get("http://localhost:5000/api/user/all")
+      .get("https://project-fix-sliit.herokuapp.com/api/user/all")
       .then((res) => {
         filterSort(res.data, searchKey);
       })
@@ -84,7 +85,7 @@ export default function Alluser() {
     console.log("helooo", role, id);
 
     await axios
-      .put(`http://localhost:5000/api/user/role/${id}`, {
+      .put(`https://project-fix-sliit.herokuapp.com/api/user/role/${id}`, {
         role: String(role),
       })
       .then((res) => res.data);
@@ -132,6 +133,8 @@ export default function Alluser() {
                 <Th>Role</Th>
                 <Th>Phone</Th>
                 <Th>Email</Th>
+                <Th></Th>
+                <Th>Delete</Th>
                 {/* <Th>Update Role</Th> */}
               </Tr>
             </Thead>
@@ -163,6 +166,12 @@ export default function Alluser() {
                         <Text color="#E74C3C">Cannot Change Role</Text>
                       </Td>
                     )}
+                    <Td>
+                      {" "}
+                      <Button mt={4} colorScheme="teal">
+                        Delete
+                      </Button>
+                    </Td>
                   </Tr>
                 );
               })}

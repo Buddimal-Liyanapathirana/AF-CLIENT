@@ -26,7 +26,9 @@ function MyGroup() {
       // gets in which group the student exists
       let user = JSON.parse(localStorage.getItem("userInfo"));
       axios
-        .get(`http://localhost:5000/api/studentGroup/user/${user._id}`)
+        .get(
+          `https://project-fix-sliit.herokuapp.com/api/studentGroup/user/${user._id}`
+        )
         .then((res) => {
           setMyGroup(res.data["studentGroup"][0]["students"]);
         })

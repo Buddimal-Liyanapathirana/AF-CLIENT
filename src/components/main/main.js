@@ -21,7 +21,10 @@ export default function CreateMarking() {
       data.append("attachment", attachment);
 
       await axios
-        .post("http://localhost:5000/api/files/uploadFile", data)
+        .post(
+          "https://project-fix-sliit.herokuapp.com/api/files/uploadFile",
+          data
+        )
         .then(async (res) => {
           if (res.status == 200) {
             console.log(res);
@@ -51,7 +54,7 @@ export default function CreateMarking() {
   async function uploadSchemeData(newMarking) {
     console.log(newMarking);
     await axios
-      .post("http://localhost:5000/api/marking", newMarking)
+      .post("https://project-fix-sliit.herokuapp.com/api/marking", newMarking)
       .then((res) => {
         console.log(res);
 

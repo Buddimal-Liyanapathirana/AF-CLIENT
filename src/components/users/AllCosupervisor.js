@@ -39,7 +39,7 @@ export default function Allsupervisor() {
     //fetches the co-supervisors
     function getOrder() {
       axios
-        .get("http://localhost:5000/api/user/cosupervisors")
+        .get("https://project-fix-sliit.herokuapp.com/api/user/cosupervisors")
         .then((res) => {
           setusers(res.data);
         })
@@ -65,19 +65,25 @@ export default function Allsupervisor() {
     let user = JSON.parse(localStorage.getItem("userInfo"));
     let reqObj = { co_supervisor: stud[0] };
 
-    axios.put(`http://localhost:5000/api/user/groupSet/${user._id}`, {
-      hasGroup: Boolean(true),
-    });
+    axios.put(
+      `https://project-fix-sliit.herokuapp.com/api/user/groupSet/${user._id}`,
+      {
+        hasGroup: Boolean(true),
+      }
+    );
 
     stud.forEach((id) => {
-      axios.put(`http://localhost:5000/api/user/groupSet/${id}`, {
-        hasGroup: Boolean(true),
-      });
+      axios.put(
+        `https://project-fix-sliit.herokuapp.com/api/user/groupSet/${id}`,
+        {
+          hasGroup: Boolean(true),
+        }
+      );
     });
 
     axios
       .put(
-        `http://localhost:5000/api/studentGroup/co_supervisorApproves/${group}`,
+        `https://project-fix-sliit.herokuapp.com/api/studentGroup/co_supervisorApproves/${group}`,
         reqObj
       )
       .then((res) => {
@@ -92,7 +98,9 @@ export default function Allsupervisor() {
     // gets in which group the student exists
     let user = JSON.parse(localStorage.getItem("userInfo"));
     axios
-      .get(`http://localhost:5000/api/studentGroup/user/${user._id}`)
+      .get(
+        `https://project-fix-sliit.herokuapp.com/api/studentGroup/user/${user._id}`
+      )
       .then((res) => {
         setGroup(res.data.studentGroup[0]._id);
         setHasSupervisor(res.data.studentGroup[0]["co_supervisor"]._id);
@@ -117,7 +125,7 @@ export default function Allsupervisor() {
     // executes when the value in sort serch is input
     const searchKey = e.currentTarget.value;
     axios
-      .get("http://localhost:5000/api/user/cosupervisors")
+      .get("https://project-fix-sliit.herokuapp.com/api/user/cosupervisors")
       .then((res) => {
         filterSearch(res.data, searchKey);
       })

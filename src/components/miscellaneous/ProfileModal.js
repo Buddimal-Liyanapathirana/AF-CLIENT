@@ -37,20 +37,18 @@ const ProfileModal = ({ user, children }) => {
       setEmail(data.email);
     };
     getUser();
-  });
+  }, []);
 
   const handleUpdate = async () => {
     console.log("submmit");
     await axios
-      .put(`http://localhost:5000/api/user/${user._id}`, {
+      .put(`https://project-fix-sliit.herokuapp.com/api/user/${user._id}`, {
         name: String(name),
         email: String(email),
         contactNo: String(contactNo),
       })
       .then((res) => res.data);
   };
-
-  const updateState = (user) => {};
 
   return (
     <>

@@ -37,7 +37,7 @@ export default function Allstudent() {
   useEffect(() => {
     function getOrder() {
       axios
-        .get("http://localhost:5000/api/user/students")
+        .get("https://project-fix-sliit.herokuapp.com/api/user/students")
         .then((res) => {
           setusers(res.data);
         })
@@ -63,18 +63,24 @@ export default function Allstudent() {
     let user = JSON.parse(localStorage.getItem("userInfo"));
     let reqObj = { students: [user._id, ...stud] };
 
-    axios.put(`http://localhost:5000/api/user/groupSet/${user._id}`, {
-      hasGroup: Boolean(true),
-    });
+    axios.put(
+      `https://project-fix-sliit.herokuapp.com/api/user/groupSet/${user._id}`,
+      {
+        hasGroup: Boolean(true),
+      }
+    );
 
     stud.forEach((id) => {
-      axios.put(`http://localhost:5000/api/user/groupSet/${id}`, {
-        hasGroup: Boolean(true),
-      });
+      axios.put(
+        `https://project-fix-sliit.herokuapp.com/api/user/groupSet/${id}`,
+        {
+          hasGroup: Boolean(true),
+        }
+      );
     });
 
     axios
-      .post("http://localhost:5000/api/studentGroup/", reqObj)
+      .post("https://project-fix-sliit.herokuapp.com/api/studentGroup/", reqObj)
       .then((res) => {
         console.log(res.data);
       })
@@ -87,7 +93,9 @@ export default function Allstudent() {
     // gets in which group the student exists
     let user = JSON.parse(localStorage.getItem("userInfo"));
     axios
-      .get(`http://localhost:5000/api/studentGroup/user/${user._id}`)
+      .get(
+        `https://project-fix-sliit.herokuapp.com/api/studentGroup/user/${user._id}`
+      )
       .then((res) => {
         setHasGroup(res.data.studentGroup.length);
       })
@@ -111,7 +119,7 @@ export default function Allstudent() {
     // executes when the value in sort serch is input
     const searchKey = e.currentTarget.value;
     axios
-      .get("http://localhost:5000/api/user/students")
+      .get("https://project-fix-sliit.herokuapp.com/api/user/students")
       .then((res) => {
         filterSearch(res.data, searchKey);
       })
@@ -130,7 +138,7 @@ export default function Allstudent() {
   const handleSort = (e) => {
     const searchKey = e.currentTarget.value;
     axios
-      .get("http://localhost:5000/api/user/students")
+      .get("https://project-fix-sliit.herokuapp.com/api/user/students")
       .then((res) => {
         filterSort(res.data, searchKey);
       })
