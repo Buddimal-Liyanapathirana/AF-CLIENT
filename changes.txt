@@ -1,0 +1,2 @@
+in frontend\src\config\ChatLogics.js in , line 42  , added   if (users) . Remove this to revert back to original
+in frontend\src\components\MyChats.js , line 6 is commented out , line 103 to 107 commented out

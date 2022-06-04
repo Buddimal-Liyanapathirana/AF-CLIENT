@@ -1,0 +1,33 @@
+.usersLIstContainer {
+  padding: 10px 10px 10px 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.usersBox {
+  background: rgb(170, 170, 170);
+  background: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 1) 0%,
+    rgba(228, 228, 228, 1) 32%,
+    rgba(177, 188, 201, 1) 100%
+  );
+}
+
+.usersList {
+  margin: 20px 20px 20px 20px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+.searchSort {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 20px 0px 20px;
+}
+
+.searchUser {
+  margin-right: 10px;
+}

@@ -1,0 +1,16 @@
+.logo_name {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+}
+.links {
+  position: relative;
+  right: 140px;
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
+}
+/* .logo_links {
+  display: flex;
+  flex-direction: row;
+} */
