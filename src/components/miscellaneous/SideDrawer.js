@@ -157,7 +157,7 @@ function SideDrawer() {
             fontFamily="Work sans"
             style={{ marginTop: "4px" }}
           >
-            ProjectFix
+            Research Management System
           </Text>
         </div>
         <div className="links">
