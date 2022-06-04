@@ -38,9 +38,9 @@ const Login = () => {
           "Content-type": "application/json",
         },
       };
-
+      // project-fix-sliit.herokuapp.com
       const { data } = await axios.post(
-        "/api/user/login",
+        "https://project-fix-sliit.herokuapp.com/api/user/login",
         { email, password },
         config
       );
